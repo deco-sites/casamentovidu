@@ -1,42 +1,50 @@
 {
-    "name": "Home",
-    "path": "/",
-    "sections": [
-      {
-        "__resolveType": "Header"
-      },
-      {
-        "__resolveType": "site/sections/Hero.tsx",
-        "title": "<p>Click here to tweak this text however you want.</p>",
-        "cta": [],
-        "description": "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away."
-      },
-      {
-        "__resolveType": "site/sections/Logos.tsx"
-      },
-      {
-        "__resolveType": "site/sections/ImageWithParagraph.tsx"
-      },
-      {
-        "__resolveType": "site/sections/ImageWithParagraph.tsx",
-        "placement": "right"
-      },
-      {
-        "__resolveType": "site/sections/BlogPosts.tsx"
-      },
-      {
-        "__resolveType": "site/sections/Testimonials.tsx",
-        "arrows": true
-      },
-      {
-        "__resolveType": "site/sections/Faq.tsx"
-      },
-      {
-        "__resolveType": "Footer"
+  "name": "Home",
+  "path": "/",
+  "sections": [
+    {
+      "__resolveType": "site/sections/Header.tsx",
+      "navigation": {
+        "links": [],
+        "buttons": []
       }
-    ],
-    "__resolveType": "website/pages/Page.tsx",
-    "seo": {
-      "__resolveType": "website/sections/Seo/SeoV2.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/BannerVidu.tsx",
+        "title": "Eduarda & Vinicius",
+        "weddingDate": "03.10.2025",
+        "image": "https://data.decoassets.com/casamentovidu/bfe31bb8-85ad-4ec5-a264-7127c8de02bb/pedido.jpg"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/TimelineVidu.tsx",
+        "title": "Sobre nós",
+        "description": "Bem-vindos à nossa história de amor! Aqui compartilhamos os momentos mais especiais da nossa jornada juntos, desde o primeiro encontro até o grande dia. Acompanhe nossa timeline e faça parte desta celebração única.",
+        "years": [
+          {
+            "images": [
+              "https://data.decoassets.com/casamentovidu/b3bed53a-85ba-4c14-894c-5a9e64de047a/2016.jpg"
+            ],
+            "year": "2016",
+            "description": "Com um livro de Shakespeare, um buquê de rosas e uma caixa de chocolates, Vinicius - com a voz trémula - pediu Duda em namoro. Dando início à história deles!"
+          },
+          {
+            "images": [
+              "https://data.decoassets.com/casamentovidu/358426a2-a3bb-40bd-9970-83a36dde670b/2017.jpg"
+            ],
+            "year": "2017",
+            "description": "Duda e Vinicius estavam se conhecendo cada vez mais: histórias, gostos e opiniões. Aqui, o ponto de encontro principal deles era o shopping com um bom milkshake e uma foto no espelho."
+          }
+        ]
+      }
     }
+  ],
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
   }
+}
