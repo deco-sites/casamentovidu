@@ -83,6 +83,40 @@
           }
         ]
       }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Pedido.tsx",
+        "title": "2024",
+        "description": "Vinicius e Duda decidiram ir além de apenas sonhar e tornaram realidade um desejo planejado desde 2023. Em uma conversa, Vinicius perguntou a Duda qual seria o lugar dos seus sonhos, se tudo fosse possível. Sem hesitar, Duda revelou que, desde a infância, seu maior desejo era visitar a Disney e Nova York. Com dedicação, poupança e muito planejamento, eles transformaram esse sonho em realidade, provando que tudo o que almejarem juntos pode ser alcançado. Mas a pergunta de Vinicius não era apenas curiosidade — ele tinha um plano em mente. Durante essa viagem especial, ele decidiu transformar um momento mágico em um marco eterno. Com o mesmo nervosismo e a voz trêmula que sentira no dia 3 de outubro de 2016, ele se ajoelhou diante de sua primeira namorada, sua primeira companheira e sua primeira amiga, e fez a pergunta que mudaria para sempre o rumo de suas vidas: \"Quer se casar comigo?\""
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Contagem.tsx"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Local.tsx",
+        "places": [
+          {
+            "name": "Cerimônia",
+            "description": "A cerimônia acontecerá na Igreja de Nossa Senhora do Carmo pontualmente às 16h no dia 03 de Outubro de 2025. Contamos com sua presença para testemunhar nossa união diante de Deus.",
+            "street": "R. José Bonifácio - Centro, Campina Grande",
+            "image": "https://data.decoassets.com/casamentovidu/444918aa-0556-4d08-997a-ef8ec48eac1c/church.jpg"
+          },
+          {
+            "name": "Recepção",
+            "description": "A recepção acontecerá logo após a cerimônia, no Navi Recepções. Esperamos você para comemorar esse momento inesquecível!",
+            "street": "Av. Bélgica, 225 - Nações, Campina Grande",
+            "image": "https://data.decoassets.com/casamentovidu/748e8b6c-d93e-4dd8-9c77-6274899b7ef4/recepcao.jpg"
+          }
+        ]
+      }
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
