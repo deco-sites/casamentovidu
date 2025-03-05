@@ -50,72 +50,102 @@ export default function TimelineViduIsland({ title, description, years = [] }: P
     }, [years]);
 
     return (
-        <div class="w-full py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
-            {/* Header Section */}
-            <div class="max-w-6xl mx-auto mb-8 text-center">
-                {title && <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#315900]">{title}</h2>}
-                {description && <p class="text-lg text-gray-600 max-w-3xl mx-auto">{description}</p>}
-            </div>
+        <>
+            <style jsx>{`
+                .description-scroll {
+                    scrollbar-width: none; /* Remove completamente o scroll padrão no Firefox */
+                    -ms-overflow-style: none; /* Remove no Edge e IE */
+                }
 
-            {/* Horizontal Timeline */}
-            <div class="max-w-full mx-auto relative">
-                {/* Horizontal scrollable container */}
-                <div class="overflow-x-auto pb-4 hide-scrollbar">
-                    <div class="flex flex-nowrap space-x-6 md:space-x-8 px-4">
-                        {years?.map((yearData, index) => (
-                            <div 
-                                key={index} 
-                                class="flex-shrink-0 w-[280px] md:w-[320px]"
-                            >
-                                {/* Content Box */}
-                                <div class="bg-white p-6 rounded-lg shadow-md h-full">
-                                    <h3 class="text-2xl font-bold mb-3 text-[#315900]">{yearData.year}</h3>
-                                    <p class="text-gray-600 mb-6">{yearData.description}</p>
+                .description-scroll::-webkit-scrollbar { 
+                    width: 6px;
+                    height: 6px;
+                }
 
-                                    {/* Simplified Image Display */}
-                                    {yearData.images && yearData.images.length > 0 && (
-                                        <div class="relative">
-                                            {/* Display current image only */}
-                                            <div class="flex justify-center">
-                                                <div class="w-[192px] h-[192px] rounded-full overflow-hidden border-4 border-gray-200">
-                                                    {/* Try to display the current image with fallbacks */}
-                                                    <img 
-                                                        src={yearData.images[currentSlide[index] || 0]} 
-                                                        alt={`Year ${yearData.year}`}
-                                                        class="w-full h-full object-cover"
-                                                        onError={(e) => {
-                                                            console.error("Image failed to load:", e);
-                                                            console.log("Image data:", yearData.images[currentSlide[index] || 0]);
-                                                            (e.target as HTMLImageElement).src = "https://via.placeholder.com/150";
-                                                        }}
-                                                    />
-                                                </div>
-                                            </div>
+                .description-scroll::-webkit-scrollbar-track {
+                    background: transparent; /* Remove qualquer fundo visível */
+                    border-radius: 10px;
+                }
 
-                                            {/* Indicator dots only - no buttons */}
-                                            {yearData.images.length > 1 && (
-                                                <div class="flex justify-center mt-4">
-                                                    <div class="flex space-x-1">
-                                                        {yearData.images.map((_, imgIndex) => (
-                                                            <span 
-                                                                key={imgIndex}
-                                                                class={`block w-2 h-2 rounded-full ${
-                                                                    (currentSlide[index] || 0) === imgIndex ? 'bg-primary' : 'bg-gray-300'
-                                                                }`}
-                                                            ></span>
-                                                        ))}
+                .description-scroll::-webkit-scrollbar-thumb {
+                    background: rgba(150, 150, 150, 0.6); /* Cor sutil e semi-transparente */
+                    border-radius: 10px;
+                    transition: background 0.3s ease-in-out;
+                }
+
+                .description-scroll::-webkit-scrollbar-thumb:hover {
+                    background: rgba(100, 100, 100, 0.8); /* Realce sutil ao passar o mouse */
+                }
+            `}</style>
+            <div class="w-full py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
+                {/* Header Section */}
+                <div class="max-w-6xl mx-auto mb-8 text-center">
+                    {title && <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#315900]">{title}</h2>}
+                    {description && <p class="text-lg text-gray-600 max-w-3xl mx-auto">{description}</p>}
+                </div>
+
+                {/* Horizontal Timeline */}
+                <div class="max-w-full mx-auto relative">
+                    {/* Horizontal scrollable container */}
+                    <div class="overflow-x-auto pb-4 hide-scrollbar">
+                        <div class="flex flex-nowrap space-x-6 md:space-x-8 px-4">
+                            {years?.map((yearData, index) => (
+                                <div 
+                                    key={index} 
+                                    class="flex-shrink-0 w-[280px] md:w-[320px]"
+                                >
+                                    {/* Content Box */}
+                                    <div class="bg-white p-6 rounded-lg shadow-md h-[450px] flex flex-col">
+                                        <h3 class="text-2xl font-bold mb-3 text-[#315900]">{yearData.year}</h3>
+                                        <div class="h-[120px] overflow-y-auto mb-6 pr-2 description-scroll">
+                                            <p class="text-gray-600">{yearData.description}</p>
+                                        </div>
+
+                                        {/* Simplified Image Display */}
+                                        {yearData.images && yearData.images.length > 0 && (
+                                            <div class="relative flex-grow flex flex-col justify-center">
+                                                {/* Display current image only */}
+                                                <div class="flex justify-center">
+                                                    <div class="w-[192px] h-[192px] rounded-full overflow-hidden border-4 border-gray-200">
+                                                        {/* Try to display the current image with fallbacks */}
+                                                        <img 
+                                                            src={yearData.images[currentSlide[index] || 0]} 
+                                                            alt={`Year ${yearData.year}`}
+                                                            class="w-full h-full object-cover"
+                                                            onError={(e) => {
+                                                                console.error("Image failed to load:", e);
+                                                                console.log("Image data:", yearData.images[currentSlide[index] || 0]);
+                                                                (e.target as HTMLImageElement).src = "https://via.placeholder.com/150";
+                                                            }}
+                                                        />
                                                     </div>
                                                 </div>
-                                            )}
-                                        </div>
-                                    )}
+
+                                                {/* Indicator dots only - no buttons */}
+                                                {yearData.images.length > 1 && (
+                                                    <div class="flex justify-center mt-4">
+                                                        <div class="flex space-x-1">
+                                                            {yearData.images.map((_, imgIndex) => (
+                                                                <span 
+                                                                    key={imgIndex}
+                                                                    class={`block w-2 h-2 rounded-full ${
+                                                                        (currentSlide[index] || 0) === imgIndex ? 'bg-primary' : 'bg-gray-300'
+                                                                    }`}
+                                                                ></span>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
   
