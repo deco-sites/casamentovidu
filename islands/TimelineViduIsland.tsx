@@ -75,7 +75,7 @@ export default function TimelineViduIsland({ title, description, years = [] }: P
                                     <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
                                         <h3 class="text-2xl font-bold mb-3 text-[#315900]">{yearData.year}</h3>
                                         <div class="h-[200px] mb-6 pr-2">
-                                            <p class="text-gray-600">{yearData.description}</p>
+                                            <p class="text-gray-600 text-sm">{yearData.description}</p>
                                         </div>
 
                                         {/* Simplified Image Display */}
