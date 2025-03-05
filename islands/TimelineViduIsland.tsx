@@ -52,30 +52,7 @@ export default function TimelineViduIsland({ title, description, years = [] }: P
     return (
         <>
             <style jsx>{`
-                .description-scroll {
-                    scrollbar-width: none; /* Remove completamente o scroll padrão no Firefox */
-                    -ms-overflow-style: none; /* Remove no Edge e IE */
-                }
-
-                .description-scroll::-webkit-scrollbar { 
-                    width: 6px;
-                    height: 6px;
-                }
-
-                .description-scroll::-webkit-scrollbar-track {
-                    background: transparent; /* Remove qualquer fundo visível */
-                    border-radius: 10px;
-                }
-
-                .description-scroll::-webkit-scrollbar-thumb {
-                    background: rgba(150, 150, 150, 0.6); /* Cor sutil e semi-transparente */
-                    border-radius: 10px;
-                    transition: background 0.3s ease-in-out;
-                }
-
-                .description-scroll::-webkit-scrollbar-thumb:hover {
-                    background: rgba(100, 100, 100, 0.8); /* Realce sutil ao passar o mouse */
-                }
+                /* Removendo os estilos de scrollbar que não serão mais necessários */
             `}</style>
             <div class="w-full py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
                 {/* Header Section */}
@@ -95,15 +72,15 @@ export default function TimelineViduIsland({ title, description, years = [] }: P
                                     class="flex-shrink-0 w-[280px] md:w-[320px]"
                                 >
                                     {/* Content Box */}
-                                    <div class="bg-white p-6 rounded-lg shadow-md h-[450px] flex flex-col">
+                                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
                                         <h3 class="text-2xl font-bold mb-3 text-[#315900]">{yearData.year}</h3>
-                                        <div class="h-[120px] overflow-y-auto mb-6 pr-2 description-scroll">
+                                        <div class="h-[200px] mb-6 pr-2">
                                             <p class="text-gray-600">{yearData.description}</p>
                                         </div>
 
                                         {/* Simplified Image Display */}
                                         {yearData.images && yearData.images.length > 0 && (
-                                            <div class="relative flex-grow flex flex-col justify-center">
+                                            <div class="relative flex flex-col justify-center">
                                                 {/* Display current image only */}
                                                 <div class="flex justify-center">
                                                     <div class="w-[192px] h-[192px] rounded-full overflow-hidden border-4 border-gray-200">

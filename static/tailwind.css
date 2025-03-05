@@ -2637,20 +2637,17 @@ html {
 .h-2 {
   height: 0.5rem;
 }
-.h-\[120px\] {
-  height: 120px;
-}
 .h-\[174px\] {
   height: 174px;
 }
 .h-\[192px\] {
   height: 192px;
 }
+.h-\[200px\] {
+  height: 200px;
+}
 .h-\[210px\] {
   height: 210px;
-}
-.h-\[450px\] {
-  height: 450px;
 }
 .h-full {
   height: 100%;
@@ -2980,9 +2977,6 @@ html {
 }
 .overflow-x-auto {
   overflow-x: auto;
-}
-.overflow-y-auto {
-  overflow-y: auto;
 }
 .overflow-y-hidden {
   overflow-y: hidden;
